@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState,useRef,useEffect } from 'react'
 import { motion } from 'framer-motion'
 import me from './me.PNG';
-
+import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 /* ─── Design tokens ───────────────────────────────────────────────────────── */
 const BG   = '#EDEAE5'
 const RED  = '#CC1111'
@@ -20,7 +20,28 @@ const rv = (delay = 0) => ({
 })
 
 /* ─── Static data ─────────────────────────────────────────────────────────── */
-const NAV_ITEMS = ['GALLERY', 'WORK', 'SPECS', 'LOGS']
+const NAV_ITEMS = ['ME', 'WORK', 'SPECS']
+
+const socials = [
+  {
+    icon: <FaLinkedinIn />,
+    href: "https://www.linkedin.com/in/konstantinos-bous/",
+    bg: "bg-[#A855F7]", // purple
+    label: "LinkedIn",
+  },
+  {
+    icon: <FaEnvelope />,
+    href: "mailto:kostasmpous@gmail.com",
+    bg: "bg-[#0EA5E9]", // blue
+    label: "Email",
+  },
+  {
+    icon: <FaGithub />,
+    href: "https://github.com/kostasmpous",
+    bg: "bg-[#0B132B]", // dark navy
+    label: "GitHub",
+  },
+];
 
 const PROJECTS = [
   {
@@ -54,13 +75,13 @@ function Portrait() {
   return (
     <div
       style={{
-        width: '320px',
-        height: '400px',
+        position: 'relative',
+        width: '270px',
+        height: '310px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        overflow: 'hidden',
-        marginTop: '-35px',
+        overflow: 'visible',
       }}
     >
       <img
@@ -69,10 +90,67 @@ function Portrait() {
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'contain',
-          objectPosition: 'center 30%',
+          objectFit: 'cover',
+          objectPosition: 'center',
         }}
       />
+
+      <div
+        style={{
+          position: 'absolute',
+          right: '-86px',
+          top: '42px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '14px',
+        }}
+      >
+        {socials.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.label}
+            style={{
+              width: '58px',
+              height: '58px',
+              backgroundColor: '#fff',
+              border: `1px solid ${BDR}`,
+              borderRadius: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.10)',
+              textDecoration: 'none',
+              transition: 'transform 0.2s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+          >
+            <div
+              style={{
+                width: '34px',
+                height: '34px',
+                backgroundColor:
+                  item.label === 'LinkedIn'
+                    ? '#A855F7'
+                    : item.label === 'Email'
+                    ? '#0EA5E9'
+                    : '#0B132B',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: '15px',
+              }}
+            >
+              {item.icon}
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
 }
@@ -218,8 +296,61 @@ function Brackets({ size = 22, thickness = 3, color = RED }) {
 
 /* ─── Main page ───────────────────────────────────────────────────────────── */
 export default function ArchitectPortfolioPage() {
-  const [nav, setNav] = useState('GALLERY')
+  const [nav, setNav] = useState('ME')
+  const heroRef = useRef(null)
+  const workRef = useRef(null)
+  const specsRef = useRef(null)
 
+  const scrollToSection = (section) => {
+    setNav(section)
+
+    const map = {
+      ME: heroRef,
+      WORK: workRef,
+      SPECS: specsRef,
+    }
+
+    map[section]?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+    useEffect(() => {
+    const sections = [
+      { key: 'ME', ref: heroRef },
+      { key: 'WORK', ref: workRef },
+      { key: 'SPECS', ref: specsRef },
+    ]
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visibleSections.length > 0) {
+          const active = sections.find(
+            (section) => section.ref.current === visibleSections[0].target
+          )
+
+          if (active) {
+            setNav(active.key)
+          }
+        }
+      },
+      {
+        threshold: [0.25, 0.4, 0.6],
+        rootMargin: '-90px 0px -45% 0px',
+      }
+    )
+
+    sections.forEach((section) => {
+      if (section.ref.current) observer.observe(section.ref.current)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+    
   return (
     <div style={{
       minHeight: '100vh',
@@ -229,7 +360,7 @@ export default function ArchitectPortfolioPage() {
     }}>
 
       {/* ── NAV ──────────────────────────────────────────────────────────── */}
-      <nav style={{ backgroundColor: BG, borderBottom: `1px solid ${BDR}` }}>
+      <nav style={{    position: 'sticky', top: 0, zIndex: 1000, backgroundColor: BG, borderBottom: `1px solid ${BDR}` }}>
         <div style={{
           maxWidth: '1080px', margin: '0 auto', padding: '0 40px',
           height: '62px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -242,7 +373,7 @@ export default function ArchitectPortfolioPage() {
             {NAV_ITEMS.map(item => (
               <button
                 key={item}
-                onClick={() => setNav(item)}
+                onClick={() => scrollToSection(item)}
                 style={{
                   background: 'none', border: 'none', cursor: 'pointer',
                   fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em',
@@ -274,7 +405,7 @@ export default function ArchitectPortfolioPage() {
       </nav>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section>
+      <section ref={heroRef}>
         <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '80px 40px 96px' }}>
           <div style={{
             display: 'grid',
@@ -329,7 +460,7 @@ export default function ArchitectPortfolioPage() {
                   maxWidth: '370px', marginBottom: '36px',
                 }}
               >
-                Software Engineer working on Salesforce environment, integrating systems, design solutions and working on AI solutions.
+                Software Engineer working on Salesforce environment, Integrating Systems, design AI solutions.
               </motion.p>
 
               {/* Terminal */}
@@ -340,51 +471,12 @@ export default function ArchitectPortfolioPage() {
 
             {/* Right – portrait + floating icons */}
             <motion.div {...rv(0.08)} style={{ paddingTop: '8px' }}>
-              <div style={{ position: 'relative', width: '330px' }}>
-
-                {/* Portrait with corner brackets */}
+              <div style={{ position: 'relative', width: '420px' }}>
                 <div style={{ position: 'relative', width: '270px' }}>
                   <Brackets />
-                  <div style={{ width: '270px', height: '310px', overflow: 'hidden' }}>
+                  <div style={{ width: '270px', height: '310px', overflow: 'visible' }}>
                     <Portrait />
                   </div>
-                </div>
-
-                {/* Floating tech icon cards */}
-                <div style={{
-                  position: 'absolute', left: '284px', top: '30px',
-                  display: 'flex', flexDirection: 'column', gap: '10px',
-                }}>
-                  {[
-                    { bg: '#a259ff', lt: 'F' },
-                    { bg: '#0ea5e9', lt: 'R' },
-                    { bg: '#0f172a', lt: '3' },
-                  ].map((ic, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: 18 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.35 + i * 0.1, duration: 0.42, ease: 'easeOut' }}
-                      style={{
-                        width: '46px', height: '46px',
-                        backgroundColor: '#fff',
-                        borderRadius: '11px',
-                        border: `1px solid ${BDR}`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        boxShadow: '0 4px 14px rgba(0,0,0,0.09)',
-                      }}
-                    >
-                      <div style={{
-                        width: '28px', height: '28px',
-                        backgroundColor: ic.bg,
-                        borderRadius: '6px',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: '#fff', fontWeight: 800, fontSize: '12px',
-                      }}>
-                        {ic.lt}
-                      </div>
-                    </motion.div>
-                  ))}
                 </div>
               </div>
             </motion.div>
@@ -397,9 +489,8 @@ export default function ArchitectPortfolioPage() {
       <div style={{ borderTop: `1px solid ${BDR}` }} />
 
       {/* ── PROJECT VAULT ────────────────────────────────────────────────── */}
-      <section>
-        <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '80px 40px' }}>
-
+      <section ref={workRef}>
+        <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '80px 40px' }}>      
           {/* Section header */}
           <div style={{
             display: 'flex', alignItems: 'flex-end',
@@ -438,7 +529,7 @@ export default function ArchitectPortfolioPage() {
       <div style={{ borderTop: `1px solid ${BDR}` }} />
 
       {/* ── TECHNICAL SPECS ──────────────────────────────────────────────── */}
-      <section>
+      <section ref={specsRef}>
         <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '80px 40px 90px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '60px', alignItems: 'start' }}>
 
