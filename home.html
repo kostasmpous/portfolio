@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spirit Studio | Alex Ghibli Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#004365",
+                        "on-secondary-fixed-variant": "#17618b",
+                        "tertiary-dim": "#893d00",
+                        "surface-container-low": "#fbf3e1",
+                        "on-error-container": "#671200",
+                        "on-error": "#fff7f6",
+                        "secondary": "#1d648f",
+                        "inverse-primary": "#bcf4b7",
+                        "on-surface-variant": "#655f4c",
+                        "primary-dim": "#2c5d30",
+                        "surface-container": "#f6edda",
+                        "secondary-fixed-dim": "#addaff",
+                        "surface-variant": "#ece2ca",
+                        "primary-fixed": "#b9f1b5",
+                        "on-primary-fixed": "#17491e",
+                        "error": "#aa371c",
+                        "inverse-surface": "#110e06",
+                        "error-container": "#fa7150",
+                        "outline-variant": "#bab19b",
+                        "on-tertiary": "#fff7f5",
+                        "on-surface": "#373222",
+                        "surface-tint": "#386a3b",
+                        "primary": "#386a3b",
+                        "on-primary-container": "#2b5c2e",
+                        "on-primary-fixed-variant": "#356637",
+                        "on-background": "#373222",
+                        "surface": "#fff8ef",
+                        "tertiary-fixed-dim": "#ff8d44",
+                        "secondary-dim": "#035882",
+                        "on-secondary-container": "#005781",
+                        "primary-fixed-dim": "#abe2a8",
+                        "surface-container-high": "#f1e7d2",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#b9f1b5",
+                        "outline": "#827a66",
+                        "error-dim": "#821a01",
+                        "on-tertiary-fixed": "#3a1600",
+                        "background": "#fff8ef",
+                        "secondary-container": "#cae6ff",
+                        "surface-container-highest": "#ece2ca",
+                        "tertiary-container": "#ffa26b",
+                        "secondary-fixed": "#cae6ff",
+                        "on-secondary": "#f6f9ff",
+                        "on-primary": "#eaffe4",
+                        "tertiary-fixed": "#ffa26b",
+                        "inverse-on-surface": "#a29c8f",
+                        "tertiary": "#9c4600",
+                        "on-tertiary-fixed-variant": "#6b2e00",
+                        "on-tertiary-container": "#5d2700",
+                        "surface-dim": "#e4d9bf",
+                        "surface-bright": "#fff8ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>body {
+    background-color: #fff8ef;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCN6M50FRYXjspRv4k2oBX1yVKOMiY70_RIcL4YnLxe4T0raMOUlom_kIeUuVH3lxpBsKCuJIToIoxYpvvkdxvP8l2DhgoYS-KOXXv7S90CwY5_-S3TKnp8UWDSR16yVjuiLTTi7fXpcTOI_URjtJ1_CB6ZW7TmrvQr_4-hXWH9KLyDQS4uaMcPO2Igdc6hVOl5RGguNEGzKakJy8T8P7cgw72CEtUHHlKrBhpPyRuOb7ZUI85VvyPmmdio9F_mw8mxVtDF_CDy4i0);
+    font-family: "Be Vietnam Pro", sans-serif;
+    color: #373222
+    }
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAO9yCd1xN_LI5ah-ehnsfdUyxvoJYcD7C3MBJKJsiKsVG8jU_2Ebmpge4B4TiouMcLmFgDl8iGINhGqwKFPAb4PqVWvqclVrJ6HJOAtrQQug5UPyuDxlatj2UaDYDUCyQoezUfEwpXWqFl5004z9SGjWkTUiIBUDzjghLr-qC-aaHsOngmrju9Nt-GlDN0Zfjy8kbvGnGuDSHNhwpbQAB-PHzyIK1zwZyekhwWDMUaaQzIbkhyWw_U745IY348va4fYiqc3rgbAz8)
+    }
+.watercolor-blob {
+    filter: blur(60px);
+    opacity: 0.4;
+    position: absolute;
+    z-index: -1
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.parchment-glass {
+    background: rgba(255, 248, 239, 0.7);
+    backdrop-filter: blur(12px)
+    }</style>
+</head>
+<body class="min-h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div class="grain-overlay"></div>
+<!-- Decorative Watercolor Backgrounds -->
+<div class="watercolor-blob bg-primary-container w-[500px] h-[500px] -top-24 -left-24 rounded-full"></div>
+<div class="watercolor-blob bg-tertiary-container w-[400px] h-[400px] -bottom-20 -right-20 rounded-full"></div>
+<!-- Top Navigation Dock -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl rounded-full px-6 py-3 bg-[#fff8ef]/70 dark:bg-stone-900/70 backdrop-blur-xl flex justify-between items-center z-50 shadow-[0_10px_40px_rgba(55,50,34,0.06)]">
+<div class="text-2xl font-bold text-[#386a3b] dark:text-[#b9f1b5] tracking-tighter font-['Plus_Jakarta_Sans']">Spirit Studio</div>
+<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">
+<a class="text-[#386a3b] dark:text-[#b9f1b5] border-b-2 border-[#9c4600] pb-1 hover:scale-105 transition-transform" href="#">Portfolio</a>
+<a class="text-[#373222]/70 dark:text-[#fff8ef]/70 hover:text-[#386a3b] hover:scale-105 transition-transform" href="#">Journey</a>
+<a class="text-[#373222]/70 dark:text-[#fff8ef]/70 hover:text-[#386a3b] hover:scale-105 transition-transform" href="#">Studio</a>
+</div>
+<div class="flex items-center text-[#386a3b] dark:text-[#b9f1b5]">
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+</nav>
+<!-- Main Bento Grid Content -->
+<main class="max-w-7xl mx-auto pt-24 px-6 h-screen flex flex-col justify-center">
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-6 h-[819px]">
+<!-- Profile Tile (Top Left) -->
+<div class="md:col-span-1 md:row-span-1 bg-surface-container-low rounded-lg p-6 shadow-[0_10px_40px_rgba(55,50,34,0.04)] border border-outline-variant/15 flex flex-col items-center justify-center text-center group">
+<div class="relative w-28 h-28 mb-4">
+<div class="absolute inset-0 bg-primary-container rounded-full scale-110 blur-md opacity-30 group-hover:opacity-50 transition-opacity"></div>
+<img class="w-full h-full object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="soft hand-painted watercolor portrait of a smiling person with gentle features in a Ghibli anime aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWrL2G30faHzesZeoKw4WLt6jftpQ4dMd0gQ5u2ISxUVhI7sOj4V69VasSk2v0VxCVp2pOrpiSCCe2pkSzVj7vjWq_8jY9_4OB1Ljr4J9hmQY-eWXm6TLQWSGTlHlp-aHRs4vCF4N-ygFPpEcuUrO0SlozdNlJ0SFYLT-2qQhBVKhcOAwp6PrQa9_w5a5xvFt225janywIL-nTkajB8_P45o857CZ6WH755ZcXwisd9GQytsG9vDsONFmP0pHDGSTc8mBLk3mIyw"/>
+</div>
+<h1 class="font-headline text-xl font-bold text-on-surface">Alex Ghibli</h1>
+<div class="flex items-center gap-2 mt-2 text-sm text-primary font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-dim animate-pulse"></span>
+                    Resting by the Forest
+                </div>
+</div>
+<!-- Bio Tile (Top Center) -->
+<div class="md:col-span-2 md:row-span-1 bg-primary-container/20 rounded-lg p-8 shadow-[0_10px_40px_rgba(55,50,34,0.04)] border border-outline-variant/15 flex items-center">
+<div class="relative">
+<span class="material-symbols-outlined text-4xl text-primary-dim absolute -top-4 -left-6 opacity-20">format_quote</span>
+<p class="font-headline text-2xl md:text-3xl font-semibold text-primary-dim leading-snug italic">
+                        Creating digital sanctuaries inspired by the rustling leaves and quiet whispers of the natural world. Every pixel is a brushstroke of nostalgia.
+                    </p>
+</div>
+</div>
+<!-- Experience Tile (Right Column) -->
+<div class="md:col-span-1 md:row-span-3 bg-surface-container-highest/40 rounded-lg p-8 shadow-[0_10px_40px_rgba(55,50,34,0.04)] border border-outline-variant/15 overflow-hidden">
+<h2 class="font-headline text-xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">history_edu</span>
+                    Journey
+                </h2>
+<ul class="space-y-8 relative">
+<div class="absolute left-[7px] top-2 bottom-2 w-[1px] bg-outline-variant/30"></div>
+<li class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 bg-tertiary rounded-full border-4 border-surface"></div>
+<div class="text-sm font-bold text-tertiary-dim">2023 - Present</div>
+<div class="font-semibold text-on-surface">Lead Dreamer</div>
+<div class="text-sm text-on-surface-variant">Spirit Studio</div>
+</li>
+<li class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 bg-primary rounded-full border-4 border-surface"></div>
+<div class="text-sm font-bold text-primary-dim">2021 - 2023</div>
+<div class="font-semibold text-on-surface">Watercolor UI Artist</div>
+<div class="text-sm text-on-surface-variant">Meadow Design</div>
+</li>
+<li class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 bg-secondary rounded-full border-4 border-surface"></div>
+<div class="text-sm font-bold text-secondary-dim">2019 - 2021</div>
+<div class="font-semibold text-on-surface">Visual Storyteller</div>
+<div class="text-sm text-on-surface-variant">Skyward Motion</div>
+</li>
+<li class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 bg-outline rounded-full border-4 border-surface"></div>
+<div class="text-sm font-bold text-on-surface-variant">2017 - 2019</div>
+<div class="font-semibold text-on-surface">Junior Sketcher</div>
+<div class="text-sm text-on-surface-variant">The Art Barn</div>
+</li>
+</ul>
+<div class="mt-12 p-4 bg-surface rounded-lg border border-outline-variant/20">
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                        "Nature does not hurry, yet everything is accomplished."
+                    </p>
+</div>
+</div>
+<!-- Project Gallery (Center) -->
+<div class="md:col-span-3 md:row-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Project 1 -->
+<div class="group relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(55,50,34,0.1)] transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="lush sun-dappled forest floor with ferns and soft morning light filtering through ancient oak trees, watercolor texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU5WYa8ExDJTzoqoFNDBbFTrTPLOE8_etDAKYuamoiwqN6qlRLWxa5hWMjz4Z8xg_0QOcG015srNks-TaLt5j51Z_2z9uhckIlwuqozJvLS3Oq7pv5aovwz7wny-gPN_npynUqVHGe40N9982Srr5bQh-L4Ng6rE76bqcsHDuSo4xpadrH9z5oGPGarNGcepybPgciQ57THGuR6K1ZdWnAJC3-3syV_9hBPwl8dzKJQp4pIniF_rUV6Si4siSUqXQkvZjkHgrT5fk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 parchment-glass m-4 rounded-lg">
+<div class="flex gap-2 mb-3">
+<span class="px-3 py-1 rounded-full bg-primary/20 text-primary-dim text-xs font-bold uppercase tracking-widest">Hand-drawn</span>
+<span class="px-3 py-1 rounded-full bg-tertiary/20 text-tertiary-dim text-xs font-bold uppercase tracking-widest">Nature-first</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Whispering Woods</h3>
+<p class="text-on-surface-variant text-sm mt-2 line-clamp-2">An immersive digital landscape that responds to the user's ambient local weather.</p>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(55,50,34,0.1)] transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="vast open meadow with wild flowers under a bright blue summer sky with fluffy white Ghibli-style clouds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqUYE6KFZj7swrB5RXY-Z7nhBR03HNd5PI2jjL5mBC0D3zmNvNafJ7QUYEWP6NZjTjjN0NeHpkNDQz9TH88xydpkj8oLd-FZJyP-XHR-4IQ61co5fG6RJIGYpr7w58hWka385OhTeFbMnCSEAKwwklyPIBPFJ98y9C9P1GkKXJEB8-Pg90hjWJ25efVZzmpiH5BJ-ZHjatUhgMF_K-9nbyFp3NpjC1igYIQUVbzfLddOznCAtO0Am6bxPh2IW9EVMkLkcKBCRMyMA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 parchment-glass m-4 rounded-lg">
+<div class="flex gap-2 mb-3">
+<span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary-dim text-xs font-bold uppercase tracking-widest">Interactive</span>
+<span class="px-3 py-1 rounded-full bg-primary/20 text-primary-dim text-xs font-bold uppercase tracking-widest">Storybook</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Skybound Echoes</h3>
+<p class="text-on-surface-variant text-sm mt-2 line-clamp-2">A nostalgic interactive journal that captures memories through sound and light.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 left-0 w-full rounded-t-[3rem] pt-8 pb-6 bg-[#f2eadd] dark:bg-stone-800 shadow-[0_-10px_40px_rgba(55,50,34,0.03)] z-40">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6 font-['Be_Vietnam_Pro'] text-sm leading-relaxed">
+<div class="flex items-center gap-4">
+<div class="text-lg font-bold text-[#386a3b]">Spirit Studio</div>
+<div class="h-4 w-[1px] bg-outline-variant/40"></div>
+<div class="text-[#373222]/60 dark:text-[#fff8ef]/60">© 2024 Spirit Studio. Hand-painted with care.</div>
+</div>
+<div class="flex items-center gap-6">
+<a class="group flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-secondary-dim group-hover:scale-125 transition-transform">eco</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Forest</span>
+</a>
+<a class="group flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-tertiary-dim group-hover:scale-125 transition-transform">cloud</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Sky</span>
+</a>
+<a class="group flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-primary-dim group-hover:scale-125 transition-transform">landscape</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Earth</span>
+</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-dim hover:bg-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-xl">nest_multi_room</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-dim hover:bg-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-xl">palette</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB Suppression/Contextual Action (Floating interaction bubble) -->
+<button class="fixed bottom-32 right-8 w-16 h-16 rounded-full bg-primary shadow-xl flex items-center justify-center text-on-primary hover:scale-110 active:scale-95 transition-all group z-50">
+<span class="material-symbols-outlined text-3xl">brush</span>
+<div class="absolute right-20 bg-surface-container px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap text-on-surface font-bold">
+            Paint a Memory
+        </div>
+</button>
+</body></html>
