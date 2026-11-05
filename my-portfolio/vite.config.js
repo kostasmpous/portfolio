@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Served from https://kostasmpous.github.io/portfolio/ on GitHub Pages
+// GitHub Pages serves the site from /portfolio/ (https://kostasmpous.github.io/portfolio/).
+// Everywhere else (Vercel, Netlify, local preview) it is served from the root.
 export default defineConfig({
-  base: '/portfolio/',
+  base: process.env.GITHUB_ACTIONS ? '/portfolio/' : '/',
   plugins: [react()],
 })

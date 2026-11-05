@@ -26,7 +26,7 @@ npm run lint      # Run ESLint
 - **Page**: `src/Portfolio.jsx` — all sections (nav, hero, work, experience, about, contact, footer)
 - **Content**: `src/data.js` — every piece of text, project, job and link; edit this to update the site
 - **Styles**: `src/index.css` (plain CSS, no Tailwind) + `src/styles/tokens-colors.css` (design-system colour tokens)
-- `vite.config.js` sets `base: '/portfolio/'` for GitHub Pages; change it if the repo is renamed
+- `vite.config.js` uses `base: '/portfolio/'` when built in GitHub Actions (Pages) and `/` elsewhere (Vercel, local)
 
 **Key dependencies:** `lucide-react` (icons)
 
