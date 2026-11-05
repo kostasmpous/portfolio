@@ -1,7 +1,5 @@
-import ArchitectPortfolioPage from "./architect_portfolio_page";
+import Portfolio from './Portfolio'
 
-function App() {
-  return <ArchitectPortfolioPage />;
+export default function App() {
+  return <Portfolio />
 }
-
-export default App;

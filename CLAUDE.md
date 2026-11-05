@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Structure
 
-This is a personal portfolio website. The active project lives in `my-portfolio/` — a React + Vite single-page app. There is also a root-level `package.json` that adds Tailwind CSS v4 (via `@tailwindcss/vite`) as a dev dependency, intended to be used alongside the Vite config in `my-portfolio/`.
+This is a personal portfolio website. The active project lives in `my-portfolio/` — a React + Vite single-page app, deployed to GitHub Pages (https://kostasmpous.github.io/portfolio/) by `.github/workflows/deploy.yml` on every push to `main`. The look comes from the "Konstantinos Bous Design System" (Portfolio v5 layout).
 
 ## Commands
 
@@ -22,13 +22,13 @@ npm run lint      # Run ESLint
 ## Architecture
 
 - **Entry point**: `src/main.jsx` → renders `<App />` into `#root`
-- **App shell**: `src/App.jsx` → thin wrapper that renders `<ArchitectPortfolioPage />`
-- **Main component**: `src/architect_portfolio_page.jsx` — the entire portfolio UI lives here as a single component
+- **App shell**: `src/App.jsx` → renders `<Portfolio />`
+- **Page**: `src/Portfolio.jsx` — all sections (nav, hero, work, experience, about, contact, footer)
+- **Content**: `src/data.js` — every piece of text, project, job and link; edit this to update the site
+- **Styles**: `src/index.css` (plain CSS, no Tailwind) + `src/styles/tokens-colors.css` (design-system colour tokens)
+- `vite.config.js` sets `base: '/portfolio/'` for GitHub Pages; change it if the repo is renamed
 
-**Key dependencies:**
-- `framer-motion` — animations
-- `lucide-react` — icons
-- Tailwind CSS v4 — utility styles (configured via `@tailwindcss/vite` plugin)
+**Key dependencies:** `lucide-react` (icons)
 
 ## ESLint Notes
 

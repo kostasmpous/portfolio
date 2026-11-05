@@ -1,0 +1,40 @@
+:root{
+/* Palette sampled from assets/avatar.jpg — countryside train ride: honey paper, carriage wood, sweater navy, paddy greens, hearth orange */
+/* Paper — warm honey creams */
+--paper-50:#FBF5E8;--paper-100:#F4E9D2;--paper-200:#E8D7B5;--paper-300:#D6BF94;--paper-400:#B99C6E;
+/* Ink — dark hair / glasses charcoal, slightly blue */
+--ink-900:#262B38;--ink-800:#343A48;--ink-700:#4A4F5C;--ink-600:#5C606C;--ink-500:#787B85;--ink-400:#A09FA0;
+/* Sky — primary: sweater navy → window sky */
+--sky-800:#22344F;--sky-700:#2F4A6E;--sky-600:#3F5F88;--sky-500:#7FA9CF;--sky-300:#B5D4EA;--sky-100:#E6F0F7;
+/* Meadow — forest & rice-paddy greens */
+--meadow-800:#2E4F2A;--meadow-700:#3E6B3A;--meadow-600:#5B8A45;--meadow-500:#8DB363;--meadow-300:#C4DC9A;--meadow-100:#EDF4DC;
+/* Ember — hearth-fire orange, sparingly */
+--ember-700:#B5521F;--ember-600:#D9692B;--ember-500:#F08A3C;--ember-300:#F7C38F;--ember-100:#FCEBD8;
+/* Wood — train carriage panelling */
+--wood-900:#4A2E1C;--wood-800:#6B4428;--wood-700:#8B5A33;--wood-600:#A8723F;--wood-500:#C08A52;--wood-300:#E0BC88;
+/* Semantic */
+--success:#3E6B3A;--success-bg:#EDF4DC;--warning:#8F5E14;--warning-bg:#F8ECD3;--danger:#A9443A;--danger-bg:#F7E0DA;--info:#2F4A6E;--info-bg:#E6F0F7;
+
+--surface-page:var(--paper-50);
+--surface-card:#FFFCF5;
+--surface-raised:#FFFFFF;
+--surface-sunken:var(--paper-100);
+--surface-dark:var(--wood-900);
+--text-body:var(--ink-800);
+--text-strong:var(--ink-900);
+--text-muted:var(--ink-600);
+--text-subtle:var(--ink-500);
+--text-on-dark:var(--paper-100);
+--text-on-primary:#FFFFFF;
+--text-link:var(--sky-700);
+--text-link-hover:var(--sky-800);
+--accent-primary:var(--sky-700);
+--accent-primary-hover:var(--sky-600);
+--accent-secondary:var(--meadow-600);
+--accent-warm:var(--ember-500);
+--accent-wood:var(--wood-700);
+--border-subtle:var(--paper-200);
+--border-default:var(--paper-300);
+--border-strong:var(--ink-400);
+--focus-ring:var(--sky-500);
+}
