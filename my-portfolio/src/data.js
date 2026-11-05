@@ -6,7 +6,7 @@ export const profile = {
   location: 'Athens, Greece',
   email: 'kostasmpous@gmail.com',
   status: 'Based in Athens · remote-friendly',
-  headline: { before: 'Salesforce developer, bringing ', em: 'AI', after: ' into the CRM.' },
+  headline: { before: 'Salesforce developer.', em: '', after: '' },
   lede:
     'I build and support Salesforce for international brands, from Consumer Goods Cloud and Apex to billing integrations. I also design AI solutions that run inside Salesforce or connect to it, so teams get value from AI without leaving their CRM.',
   meta: [

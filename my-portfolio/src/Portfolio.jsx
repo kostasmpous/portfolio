@@ -45,7 +45,7 @@ function Hero() {
       <div className="wrap hero-grid">
         <div className="hero-text">
           <span className="status"><i />{profile.status}</span>
-          <h1>{profile.headline.before}<em>{profile.headline.em}</em>{profile.headline.after}</h1>
+          <h1>{profile.headline.before}{profile.headline.em && <em>{profile.headline.em}</em>}{profile.headline.after}</h1>
           <p className="lede">{profile.lede}</p>
           <div className="ctas">
             <a href="#work" className="btn primary">View my work</a>
