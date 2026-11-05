@@ -2,12 +2,13 @@
 
 export const profile = {
   name: 'Konstantinos Bousinis',
-  title: 'Salesforce Developer & AI Engineer',
+  title: 'Salesforce Developer',
   location: 'Athens, Greece',
   email: 'kostasmpous@gmail.com',
   status: 'Based in Athens · remote-friendly',
+  headline: { before: 'Salesforce developer, bringing ', em: 'AI', after: ' into the CRM.' },
   lede:
-    'I build on Salesforce Consumer Goods Cloud for international FMCG brands, and I build the agent infrastructure that puts LLMs to work on top of it: skills platforms, multi-model routing and LLM evaluation.',
+    'I build and support Salesforce for international brands, from Consumer Goods Cloud and Apex to billing integrations. I also design AI solutions that run inside Salesforce or connect to it, so teams get value from AI without leaving their CRM.',
   meta: [
     { strong: '5+ years', text: 'on Salesforce' },
     { strong: '5', text: 'Salesforce certifications' },
@@ -19,14 +20,32 @@ export const profile = {
   },
 }
 
-// area: 'ai' | 'salesforce' | 'data'  — url is optional; cards without one are not clickable.
+// area: 'salesforce' | 'ai' | 'data'  — url is optional; cards without one are not clickable.
 export const projects = [
+  {
+    title: 'Consumer Goods Cloud for FMCG brands',
+    area: 'salesforce',
+    year: '2026',
+    context: 'Consumer Goods Cloud',
+    desc: 'Development and support for international FMCG brands: approval workflows, triggers, managed-package batch jobs tuned around governor limits, and production issues traced end to end.',
+    tags: ['Apex', 'SOQL', 'CGC data model'],
+    icon: 'cloud',
+  },
+  {
+    title: 'Salesforce ↔ Zuora billing integration',
+    area: 'salesforce',
+    year: '2023 – 2026',
+    context: 'Automotive client',
+    desc: 'The Salesforce side of a billing integration with Zuora for an automotive client, built with an Agile delivery team at Deloitte Digital.',
+    tags: ['Async Apex', 'LWC', 'Flow'],
+    icon: 'plug',
+  },
   {
     title: 'Dispute Copilot',
     area: 'ai',
     year: '2026',
     context: 'PayPal AI Hackathon',
-    desc: 'An AI agent that helps PayPal merchants work through payment disputes: it gathers the evidence, drafts the response and keeps the merchant in the loop.',
+    desc: 'An AI agent that helps merchants work through payment disputes: it gathers the evidence, drafts the response and keeps a person in the loop before anything is sent.',
     tags: ['AI agents', 'LLMs', 'Python'],
     icon: 'shield',
   },
@@ -35,27 +54,9 @@ export const projects = [
     area: 'ai',
     year: '2026',
     context: 'H0 Hackathon',
-    desc: 'A platform for collecting human preferences and calibrating LLM-as-judge evaluators against them, so automated scores can be trusted.',
-    tags: ['LLM evaluation', 'Aurora DSQL', 'PostgreSQL'],
+    desc: 'A tool for checking that AI-generated answers can be trusted: it collects human ratings and tunes automated evaluators to agree with them.',
+    tags: ['LLM evaluation', 'PostgreSQL', 'AWS'],
     icon: 'gauge',
-  },
-  {
-    title: 'Skills lifecycle platform',
-    area: 'ai',
-    year: '2026',
-    context: 'Agent infrastructure',
-    desc: 'A versioned registry for AI agent skills with a Draft → Published → Deprecated flow, a GitHub App backend and a CLI for publishing.',
-    tags: ['FastAPI', 'PostgreSQL', 'GitHub App'],
-    icon: 'layers',
-  },
-  {
-    title: 'Future of AI search: vectors & RAG',
-    area: 'data',
-    year: '2025',
-    context: 'Talk & live demo',
-    desc: 'A talk and live demo on vector search and retrieval-augmented generation, built on Pinecone and the Anthropic API.',
-    tags: ['RAG', 'Pinecone', 'Claude'],
-    icon: 'search',
   },
 ]
 
@@ -65,7 +66,7 @@ export const experience = [
     org: 'Peak & Peak',
     period: 'Mar 2026 – Present',
     summary:
-      'Develop and support Consumer Goods Cloud for international FMCG brands: Apex, SOQL, triggers, approval workflows and CGC data models. Diagnose production incidents end to end, tune managed-package batch jobs, and review technical designs before they are built.',
+      'Develop and support Consumer Goods Cloud for international FMCG brands: Apex, SOQL, triggers, approval workflows and CGC data models. Diagnose production incidents end to end, tune managed-package batch jobs, review technical designs before they are built, and help bring AI tooling into the delivery team.',
   },
   {
     role: 'Consultant',
@@ -85,7 +86,7 @@ export const experience = [
 
 export const about = [
   'I started on Salesforce through a developer bootcamp at Deloitte Digital and spent the next years integrating billing platforms for automotive clients. Today I work on Consumer Goods Cloud, where the interesting problems are in data models, batch jobs and the bugs nobody else can reproduce.',
-  'Alongside that I build AI agents and the tooling around them, and I compete in AI hackathons. Most Salesforce developers only list Agentforce and most AI engineers have never met a governor limit. I like working where those two worlds meet.',
+  'More and more of my work is about bringing AI into Salesforce: Agentforce, LLMs connected through Apex and APIs, and the checks that make their answers reliable. I care about AI that fits the org it lives in and respects its data, security and limits.',
 ]
 
 export const education = [
@@ -94,14 +95,14 @@ export const education = [
 ]
 
 export const certifications = [
-  'Agentforce Specialist',
   'Platform Developer I',
   'Platform App Builder',
   'Administrator',
+  'Agentforce Specialist',
   'AI Associate',
 ]
 
 export const skills = [
-  'Apex', 'LWC', 'SOQL', 'Flow', 'Agentforce', 'Consumer Goods Cloud',
-  'Python', 'FastAPI', 'PostgreSQL', 'LLM APIs', 'RAG', 'MCP', 'LangGraph', 'AWS',
+  'Apex', 'LWC', 'SOQL', 'Flow', 'Async Apex', 'Consumer Goods Cloud',
+  'Integrations', 'Agentforce', 'LLM APIs', 'RAG', 'Python', 'PostgreSQL',
 ]

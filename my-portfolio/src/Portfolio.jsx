@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Gauge, Layers, Search, Shield, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Cloud, Gauge, Layers, Plug, Search, Shield, Sparkles } from 'lucide-react'
 import avatar from './assets/avatar.webp'
 import {
   about, certifications, education, experience, profile, projects, skills,
@@ -10,7 +10,7 @@ const AREAS = {
   salesforce: { label: 'Salesforce', color: 'var(--accent)', tint: 'var(--sky-100)' },
   data: { label: 'Data & search', color: 'var(--green)', tint: 'var(--meadow-100)' },
 }
-const ICONS = { shield: Shield, gauge: Gauge, layers: Layers, search: Search }
+const ICONS = { cloud: Cloud, plug: Plug, shield: Shield, gauge: Gauge, layers: Layers, search: Search }
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -43,7 +43,7 @@ function Hero() {
     <section className="hero" id="top">
       <div className="wrap">
         <span className="status"><i />{profile.status}</span>
-        <h1>Salesforce developer, building with <em>AI</em>.</h1>
+        <h1>{profile.headline.before}<em>{profile.headline.em}</em>{profile.headline.after}</h1>
         <p className="lede">{profile.lede}</p>
         <div className="ctas">
           <a href="#work" className="btn primary">View my work</a>
@@ -91,7 +91,7 @@ function Work() {
   return (
     <section className="block" id="work" aria-labelledby="work-h">
       <div className="wrap">
-        <div className="head"><h2 id="work-h">Selected work</h2><p>AI agents, evaluation and search</p></div>
+        <div className="head"><h2 id="work-h">Selected work</h2><p>Salesforce delivery, and AI built on top of it</p></div>
         <ul className="grid">{projects.map((p) => <ProjectCard key={p.title} p={p} />)}</ul>
       </div>
     </section>
@@ -158,7 +158,7 @@ function Contact() {
     <section className="contact" id="contact" aria-labelledby="contact-h">
       <div className="wrap">
         <div className="cta">
-          <h2 id="contact-h">Looking for a Salesforce developer who knows AI?</h2>
+          <h2 id="contact-h">Need a Salesforce developer who can bring AI into your org?</h2>
           <p>Email is the quickest way to reach me. I usually reply within a day.</p>
           <div className="ctas">
             <a href={`mailto:${profile.email}`} className="btn">{profile.email}</a>
