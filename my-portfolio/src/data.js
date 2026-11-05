@@ -1,7 +1,7 @@
 // All site content lives here. Edit this file to update the portfolio.
 
 export const profile = {
-  name: 'Konstantinos Bous',
+  name: 'Konstantinos Bousinis',
   title: 'Salesforce Developer & AI Engineer',
   location: 'Athens, Greece',
   email: 'kostasmpous@gmail.com',
