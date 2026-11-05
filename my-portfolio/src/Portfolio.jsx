@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, Cloud, Gauge, Layers, Plug, Search, Shield, Sparkles } from 'lucide-react'
 import avatar from './assets/avatar.webp'
+import portrait from './assets/portrait.webp'
 import {
   about, certifications, education, experience, profile, projects, skills,
 } from './data'
@@ -41,21 +42,32 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="wrap">
-        <span className="status"><i />{profile.status}</span>
-        <h1>{profile.headline.before}<em>{profile.headline.em}</em>{profile.headline.after}</h1>
-        <p className="lede">{profile.lede}</p>
-        <div className="ctas">
-          <a href="#work" className="btn primary">View my work</a>
-          <a href={profile.links.github} className="btn" target="_blank" rel="noopener noreferrer">
-            GitHub <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+      <div className="wrap hero-grid">
+        <div className="hero-text">
+          <span className="status"><i />{profile.status}</span>
+          <h1>{profile.headline.before}<em>{profile.headline.em}</em>{profile.headline.after}</h1>
+          <p className="lede">{profile.lede}</p>
+          <div className="ctas">
+            <a href="#work" className="btn primary">View my work</a>
+            <a href={profile.links.github} className="btn" target="_blank" rel="noopener noreferrer">
+              GitHub <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+          <ul className="meta">
+            {profile.meta.map((m) => (
+              <li key={m.text}>{m.strong && <b>{m.strong}</b>} {m.text}</li>
+            ))}
+          </ul>
         </div>
-        <ul className="meta">
-          {profile.meta.map((m) => (
-            <li key={m.text}>{m.strong && <b>{m.strong}</b>} {m.text}</li>
-          ))}
-        </ul>
+        <figure className="portrait">
+          <img
+            src={portrait}
+            alt={`Illustrated portrait of ${profile.name}`}
+            width="640"
+            height="800"
+            fetchPriority="high"
+          />
+        </figure>
       </div>
     </section>
   )
